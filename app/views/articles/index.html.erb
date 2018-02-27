@@ -17,6 +17,7 @@
   <tbody>
     <% @articles.each do |article| %>
       <tr>
+        <td><%= image_tag article.image.url(:medium) %></td>
         <td><%= article.brand.email%></td>
         <td><%= article.name %></td>
         <td><%= article.description %></td>
