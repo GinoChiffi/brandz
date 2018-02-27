@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_brand!, except: [:index, :show]
   # GET /articles
   # GET /articles.json
   def index
@@ -14,7 +14,7 @@ class ArticlesController < ApplicationController
 
   # GET /articles/new
   def new
-    @article = Article.new
+    @article = current_brand.articles.build
   end
 
   # GET /articles/1/edit
@@ -24,7 +24,7 @@ class ArticlesController < ApplicationController
   # POST /articles
   # POST /articles.json
   def create
-    @article = Article.new(article_params)
+    @article = current_brand.articles.build(article_params)
 
     respond_to do |format|
       if @article.save
@@ -65,6 +65,11 @@ class ArticlesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_article
       @article = Article.find(params[:id])
+    end
+
+    def correct_brand
+      @article = current_brand.articles.find_by(:id params[:id])
+      redirect_to articles_path, notice: 'Not authorized to edit this article' if @article.nil?
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
