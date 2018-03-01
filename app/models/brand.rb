@@ -5,4 +5,9 @@ class Brand < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
    has_many :articles
+   validates_uniqueness_of :name
+
+  has_attached_file :logo, styles: { medium: "300x300>", thumb: "100x100>" }
+  validates_attachment :logo, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] }
+
 end

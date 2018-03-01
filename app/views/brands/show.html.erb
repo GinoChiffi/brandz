@@ -1,5 +1,15 @@
+
+<div class="center">
+  <%= image_tag @brand.logo.url(:thumb) %>
+<h1><%= @brand.name %></h1></br>
+</div>
+
+<div class="jumbotron center">
+<%= @brand.brand_description %>
+</div>
+
 <div id="articles" class="transitions-enabled">
-    <% @articles.each do |article| %>
+    <% @brand.articles.each do |article| %>
         <div class="box panel panel-default">
             <%= link_to image_tag(article.image.url(:medium)), article %>
                <div class="panel-body">
@@ -14,4 +24,5 @@
     </div>
   <% end %>
 </div>
+
 

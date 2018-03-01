@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180227173404) do
+ActiveRecord::Schema.define(version: 20180301164354) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "name"
@@ -40,6 +40,12 @@ ActiveRecord::Schema.define(version: 20180227173404) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "name"
+    t.string   "brand_description"
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
     t.index ["email"], name: "index_brands_on_email", unique: true
     t.index ["reset_password_token"], name: "index_brands_on_reset_password_token", unique: true
   end

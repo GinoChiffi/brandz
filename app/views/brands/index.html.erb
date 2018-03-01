@@ -1,0 +1,20 @@
+<div class="jumbotron center">
+<h1>Brands#index</h1>
+</div>
+
+
+<div class="transitions-enabled">
+  <% @brands.each do |brand| %>
+<div class="row">
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <%= image_tag(brand.logo.url(:medium)) %>
+      <div class="caption center">
+        <p><%= brand.brand_description %></p>
+        <p><a href="#" class="btn btn-primary">Button</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
+</div>
