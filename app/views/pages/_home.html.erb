@@ -1,16 +1,13 @@
-
 <div class="jumbotron center">
-<h1> This is Brandz </h1>
-
   <% if brand_signed_in? %>
-   # Welcome brand owner
+   <h1>Welcome <%=current_brand.name%></h1>
   <%else%>
+  <h1>Welcome To Brandz</h1>
     <p>
       <%= link_to 'Sign Up', signup_path, class: "btn btn-danger" %>
       <%= link_to 'Log In', login_path, class: "btn btn-primary" %>
     </p>
   <% end %>
-
 </div>
 
 

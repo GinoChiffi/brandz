@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   devise_for :brands
   devise_for :users
 
-  root 'pages#home'
+  root 'brands#index'
   get 'about' => 'pages#about'
   get 'signup' => 'pages#signup'
   get 'login' => 'pages#login'
