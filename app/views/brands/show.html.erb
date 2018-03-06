@@ -1,25 +1,37 @@
 
 <div class="center">
-  <%= image_tag @brand.logo.url(:thumb) %>
-<h1><%= @brand.name %></h1></br>
+  <%= image_tag @brand.logo.url(:medium) %>
 </div>
-
+</br>
 <div class="jumbotron center">
-<%= @brand.brand_description %>
+    <h1><%= @brand.name %></h1></br>
+    <%= @brand.brand_description %></br>
+    </br>
+
+    <h3>Contact: </h3>
+   <strong>Email:</strong> <%= @brand.email %></br>
+</br>
+</br>
+     <strong>Designers:</strong></br>
+      <% @brand.designers.each do |designer| %>
+      <%= link_to designer.name, designer %></br>
+      <%end%>
 </div>
 
 <div id="articles" class="transitions-enabled">
     <% @brand.articles.each do |article| %>
         <div class="box panel panel-default">
             <%= link_to image_tag(article.image.url(:medium)), article %>
-               <div class="panel-body">
+
             <% if article.brand == current_brand %>
+             <div class="panel-body">
               <div class="actions">
                 <%= link_to  raw('<span class="glyphicon glyphicon-edit"></span>Edit'), edit_article_path(article) %>
                 <%= link_to  raw('<span class="glyphicon glyphicon-trash"></span>Delete'), article, method: :delete, data: { confirm: 'Are you sure?' } %>
               </div>
+              </div>
             <% end %>
-      </div>
+
     </div>
   <% end %>
 </div>

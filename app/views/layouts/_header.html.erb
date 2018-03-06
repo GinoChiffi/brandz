@@ -26,10 +26,11 @@
         <li><%= link_to "About", about_path%></li>
 
         <% if brand_signed_in? %>
-        <li><%= link_to "Log out Brand", destroy_brand_session_path, method: :delete %></li>
+        <li><%= link_to "Log out", destroy_brand_session_path, method: :delete %></li>
         <li><%= link_to "Account Settings", edit_brand_registration_path %></li>
+         <li><%= link_to "Designers", designer_indexes_path %></li>
+         <li><%= link_to "Pics", article_indexes_path %></li>
         <li><%= link_to current_brand.name, brand_path(current_brand.name) %></li>
-        <li><%= link_to  raw('<span class="glyphicon glyphicon-plus"></span>New Artcle'), new_article_path %></li>
         <% end %>
 
          <% if user_signed_in? %>
