@@ -37,6 +37,7 @@ gem 'bootstrap-sass'
 gem 'devise', '~> 4.1.1'
 gem 'paperclip', '~> 5.2.0'
 gem 'masonry-rails', '~> 0.2.0'
+gem 'acts_as_follower', github: 'tcocca/acts_as_follower', branch: 'master'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
