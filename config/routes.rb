@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  resources :locations
   get 'users/index'
 
   get 'users/show'

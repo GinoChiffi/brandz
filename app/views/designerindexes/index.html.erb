@@ -6,7 +6,7 @@
 <div id="articles" class="transitions-enabled">
     <% @current_brand.designers.each do |designer| %>
     <div class="box panel panel-default">
-      <%= image_tag designer.avatar.url(:thumb) %>
+      <%= image_tag designer.avatar.url(:medium) %>
       <div class="panel-body">
       <strong>Designer: </strong><%= designer.name %></br>
      <strong>Bio: </strong> <%= designer.bio %></br>
