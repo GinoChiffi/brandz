@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <%= link_to "Brandz", root_path, class: "navbar-brand" %>
+      <%= link_to "Branded", root_path, class: "navbar-brand" %>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -22,22 +22,24 @@
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Home", root_path%></li>
-        <li><%= link_to "About", about_path%></li>
-
         <% if brand_signed_in? %>
+        <li><%= link_to raw('<span class="glyphicon glyphicon-globe"></span>'), root_path %></li>
         <li><%= link_to "Log out", destroy_brand_session_path, method: :delete %></li>
-        <li><%= link_to "Account Settings", edit_brand_registration_path %></li>
+       <li><%= link_to raw('<span class="glyphicon glyphicon-dashboard"></span>'), edit_brand_registration_path %></li>
         <li><%= link_to "Locations", locations_path %></li>
          <li><%= link_to "Designers", designer_indexes_path %></li>
+         <li><%= link_to "Brand It", new_notification_path %></li>
          <li><%= link_to "Pics", article_indexes_path %></li>
-        <li><%= link_to current_brand.name, brand_path(current_brand.name) %></li>
+        <li><%= link_to raw('<span class="glyphicon glyphicon-user"></span>'), brand_path(current_brand.name) %></li>
         <% end %>
 
+
+
          <% if user_signed_in? %>
+        <li><%= link_to "Following", brands_index_path %></li>
         <li><%= link_to "Log out user", destroy_user_session_path, method: :delete %></li>
         <li><%= link_to "Account Settings", edit_user_registration_path %></li>
-        <li><%= link_to "Profile", users_show_path(current_user) %></li>
+        <li><%= link_to raw('<span class="glyphicon glyphicon-user"></span>'), users_show_path(current_user) %></li>
         <% end %>
 
       </ul>

@@ -1,25 +1,3 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
-
-<%= current_user.follows.count%></br>
-</br>
-</br>
-
-
-
-<div id="articles" class="transitions-enabled">
-    <% current_user.all_following.each do |f|%>
-    <div class="box panel panel-default">
-       <%= link_to image_tag(f.logo.url(:medium)), brand_path(f.name)%></br>
-      <div class="panel-body">
-        <%= f.name %> </br>
-        <%= f.brand_description %></br>
-      </div>
-    </div>
-  <% end %>
-  </div>
-
-
-
+<%= render 'layouts/user_feed' %>
 
 

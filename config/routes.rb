@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  resources :notifications
   resources :locations
   get 'users/index'
 
@@ -11,7 +12,7 @@ Rails.application.routes.draw do
   devise_for :brands
   devise_for :users
 
-  root 'brands#index'
+  root 'pages#home'
   get 'about' => 'pages#about'
   get 'signup' => 'pages#signup'
   get 'login' => 'pages#login'
@@ -22,6 +23,7 @@ Rails.application.routes.draw do
   get 'brands/index'
   get 'designer/indexes' => 'designerindexes#index'
   get 'article/indexes' => 'articleindexes#index'
+
 
   resources :brands do
     member  do

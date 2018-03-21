@@ -1,10 +1,30 @@
 @import url(http://fonts.googleapis.com/css?family=Lato:400,700);
 
-$navbar-default-bg:  #ecf0f1;
-$navbar-default-brand-color: #c0392b;
+$navbar-default-bg:  #fde9eb;
+$navbar-default-brand-color: black;
+$navbar-default-link-color: black;
+$body-bg: #fafafa;
 
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
+
+
+.btn-default {
+  color: #fde9eb;
+  background: black;
+  font-weight: bold;
+}
+
+.btn-default:hover, .btn-default:focus, .btn-default:active {
+    color: black;
+  background:  #fde9eb;
+  font-weight: bold;
+}
+
+.navbar-default {
+  border-bottom-color: #fde9eb;
+  font-weight: bold;
+}
 
 .center {
   text-align: center;
@@ -14,3 +34,5 @@ $navbar-default-brand-color: #c0392b;
   font-weight: bold;
 }
 
+
+body { padding-top: 70px; }

@@ -1,0 +1,18 @@
+  <div class="center">
+  <% if brand_signed_in? || user_signed_in? %>
+  <%else%>
+    <p>
+      <%= link_to 'Sign Up', signup_path, class: "btn btn-default" %>
+      <%= link_to 'Log In', login_path, class: "btn btn-default" %>
+    </p>
+  <% end %>
+
+
+<% if user_signed_in? %>
+  <%= render 'layouts/user_feed'%>
+  <% end %>
+
+
+
+
+

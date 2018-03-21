@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<div id="posts">
+      <div class="postbox panel panel-default">
+          <%= image_tag @notification.image.url %>
+
+        <div class="panel-body center">
+            <h1><%= @notification.title %></h1>
+            <p><%= @notification.description %></p>
+          </div>
+
+        <div class="panel-footer">
+            <p>by <%= @notification.brand.name %></p>
+            <% if brand_signed_in? %>
+              <%= link_to 'Edit', edit_notification_path(@notification), class: "btn btn-info" %>
+              <%= link_to 'Back', notifications_path, class: "btn btn-danger" %>
+              <%= link_to 'Delete', @notification, method: :delete, data: { confirm: "Are you sure?"},class: "btn btn-danger" %>
+              <%end%>
+          </div>
+    </div>
+</div>
+
+

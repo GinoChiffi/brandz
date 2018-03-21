@@ -1,7 +1,7 @@
 class BrandsController < ApplicationController
 
 def index
-    @brands = Brand.all.order('created_at DESC')
+    @brands = Brand.all
   end
 
   def show

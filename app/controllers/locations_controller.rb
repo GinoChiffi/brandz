@@ -1,10 +1,12 @@
 class LocationsController < ApplicationController
   before_action :set_location, only: [:show, :edit, :update, :destroy]
+  before_action :correct_brand, only: [:edit, :update,:destroy]
+  before_action :authenticate_brand!, except: [:index, :show]
 
   # GET /locations
   # GET /locations.json
   def index
-    @locations = Location.all
+    @locations = current_brand.locations
   end
 
   # GET /locations/1
@@ -14,7 +16,7 @@ class LocationsController < ApplicationController
 
   # GET /locations/new
   def new
-    @location = Location.new
+    @location = current_brand.locations.build
   end
 
   # GET /locations/1/edit
@@ -24,7 +26,7 @@ class LocationsController < ApplicationController
   # POST /locations
   # POST /locations.json
   def create
-    @location = Location.new(location_params)
+    @location = current_brand.locations.build(location_params)
 
     respond_to do |format|
       if @location.save
@@ -65,6 +67,11 @@ class LocationsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_location
       @location = Location.find(params[:id])
+    end
+
+    def correct_brand
+      @location = current_brand.locations.find_by(id: params[:id])
+      redirect_to locations_path, notice: 'Not authorized to edit this location' if @location.nil?
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

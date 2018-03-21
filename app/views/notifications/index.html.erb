@@ -1,0 +1,18 @@
+    <p id="notice"><%= notice %></p>
+    <h1>Notifications</h1>
+    <%= link_to 'New Notification', new_notification_path %>
+  <div id="posts" class="transitions-enabled">
+      <% @notifications.each do |notification| %>
+        <div class="postbox panel panel-default">
+        <div class="panel-body">
+          <%=image_tag notification.brand.logo.url(:thumb) %>
+         <h1><%= notification.title %></h1>
+          <p>Posted by: <%= notification.brand.name %></p>
+          <p><%= notification.description %></p>
+        </div>
+        </div>
+      <% end %>
+  </div>
+
+
+
