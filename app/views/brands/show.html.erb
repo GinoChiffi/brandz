@@ -38,6 +38,9 @@
   </section>
 
   <section id='brand_designers_section'>
+     <% if brand_signed_in? %>
+  <%= link_to 'Add Designer', new_designer_path %>
+  <% end %>
    <%= render 'layouts/brand_designers' %>
   </section>
 

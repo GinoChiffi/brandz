@@ -30,7 +30,7 @@ class DesignersController < ApplicationController
 
     respond_to do |format|
       if @designer.save
-        format.html { redirect_to designer_indexes_url, notice: 'Designer was successfully created.' }
+        format.html { redirect_to brand_path(current_brand.name), notice: 'Designer was successfully created.' }
         format.json { render :show, status: :created, location: @designer }
       else
         format.html { render :new }
@@ -44,7 +44,7 @@ class DesignersController < ApplicationController
   def update
     respond_to do |format|
       if @designer.update(designer_params)
-        format.html { redirect_to @designer, notice: 'Designer was successfully updated.' }
+        format.html { redirect_to brand_path(current_brand.name), notice: 'Designer was successfully updated.' }
         format.json { render :show, status: :ok, location: @designer }
       else
         format.html { render :edit }
@@ -58,7 +58,7 @@ class DesignersController < ApplicationController
   def destroy
     @designer.destroy
     respond_to do |format|
-      format.html { redirect_to designer_indexes_url, notice: 'Designer was successfully destroyed.' }
+      format.html { redirect_to brand_path(current_brand.name), notice: 'Designer was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

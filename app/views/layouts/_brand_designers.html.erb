@@ -8,6 +8,8 @@
     <% end  %>
 
         <div class="designer_profile_name">
+        <%= link_to raw('<span class="glyphicon glyphicon-edit"></span>'), edit_designer_path(designer) %>
+        <%= link_to raw('<span class="glyphicon glyphicon-trash"></span>'), designer, method: :delete, data: { confirm: 'Are you sure?' } %>
         <h3><%= designer.name %></h3>
         </div>
 
