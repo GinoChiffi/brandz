@@ -1,5 +1,7 @@
 class PagesController < ApplicationController
   def home
+    @brands = Brand.all
+    @notifications= Notification.all
   end
 
   def about
@@ -10,4 +12,5 @@ class PagesController < ApplicationController
 
   def login
   end
+
 end

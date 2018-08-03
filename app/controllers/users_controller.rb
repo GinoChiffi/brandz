@@ -6,5 +6,4 @@ class UsersController < ApplicationController
   def show
     @users = User.find_by(params[:id])
   end
-
 end

@@ -35,12 +35,17 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-gem 'bootstrap-sass'
+gem 'bootstrap', '~> 4.1.0'
 gem 'devise', '~> 4.1.1'
 gem 'paperclip', '~> 5.2.0'
 gem 'masonry-rails', '~> 0.2.0'
 gem 'acts_as_follower', github: 'tcocca/acts_as_follower', branch: 'master'
 gem 'geocoder'
+gem 'acts_as_votable', '~> 0.11.1'
+gem 'acts-as-taggable-on', '~> 4.0'
+gem 'ransack', github: 'activerecord-hackery/ransack'
+gem 'font-awesome-sass', '~> 5.0.9'
+
 
 
 group :development, :test do

@@ -1,16 +1,19 @@
 Rails.application.routes.draw do
 
+  get 'follows/index'
 
-  resources :notifications
-  resources :locations
+  get 'follows/show'
+
   get 'users/index'
 
   get 'users/show'
 
-  resources :designers
-  resources :articles
   devise_for :brands
   devise_for :users
+  resources :locations
+  resources :designers
+  resources :articles
+  resources :notifications
 
   root 'pages#home'
   get 'about' => 'pages#about'
@@ -21,20 +24,14 @@ Rails.application.routes.draw do
 
   #'brands/show'
   get 'brands/index'
-  get 'designer/indexes' => 'designerindexes#index'
-  get 'article/indexes' => 'articleindexes#index'
-
 
   resources :brands do
     member  do
       get :follow
       get :unfollow
-
     end
-
-    end
-
-
+    collection {post :search, to: 'brands#index'}
+  end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

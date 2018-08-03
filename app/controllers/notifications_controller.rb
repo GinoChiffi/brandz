@@ -13,6 +13,7 @@ class NotificationsController < ApplicationController
   # GET /notifications/1
   # GET /notifications/1.json
   def show
+    @notification = Notification.find(params[:id])
   end
 
   # GET /notifications/new
@@ -59,7 +60,7 @@ class NotificationsController < ApplicationController
   def destroy
     @notification.destroy
     respond_to do |format|
-      format.html { redirect_to notifications_url, notice: 'Notification was successfully destroyed.' }
+      format.html { redirect_to brand_path(current_brand.name), notice: 'Notification was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

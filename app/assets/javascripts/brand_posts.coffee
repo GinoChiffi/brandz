@@ -1,4 +1,4 @@
-$(window).on "turbolinks:load", ->
+$(document).on "turbolinks:load", ->
   $('#brand_post_link').click ->
       event.preventDefault()
       $('#brand_post_section').fadeToggle()
@@ -7,5 +7,6 @@ $(window).on "turbolinks:load", ->
       $('#brand_contact_section').hide()
       $('#brand_story_section').hide()
       $('#brand_locations_section').hide()
+
 
 
